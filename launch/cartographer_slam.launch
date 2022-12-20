@@ -26,7 +26,9 @@
         args="-configuration_directory $(find tf_sample)/config
               -configuration_basename $(arg configuration_basename)"
         output="screen">
-        <remap from="echoes" to="laser"/>
+        <remap from="scan" to="/rplidar_scan"/>
+        <remap from="points2" to="/velodyne_points"/>
+        <remap from="odom" to="/camera/odom/sample"/>
 
     <!-- <remap from="/imu" to="/flat_imu"/> -->
     <!--remap from="points2" to="/camera/depth/points" / -->
