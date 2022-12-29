@@ -20,11 +20,11 @@ options = {
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
   tracking_frame = "imu_link", -- imu_link, If you are using gazebo, use 'base_footprint' (libgazebo_ros_imu's bug)
-  published_frame = "base_link",
-  odom_frame = "odom",
-  provide_odom_frame = true,
+  published_frame = "camera_pose_frame",
+  odom_frame = "camera_pose_frame",
+  provide_odom_frame = false,
   publish_frame_projected_to_2d = false,
-  use_odometry = false,
+  use_odometry = true,
   use_nav_sat = false,
   use_landmarks = false,
   num_laser_scans = 0, -- hjpark : rp lidar
@@ -56,5 +56,5 @@ TRAJECTORY_BUILDER_2D.max_z = 0.5
 
 POSE_GRAPH.constraint_builder.min_score = 0.65
 POSE_GRAPH.constraint_builder.global_localization_min_score = 0.7
-
+POSE_GRAPH.optimize_every_n_nodes = 20
 return options

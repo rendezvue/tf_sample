@@ -27,6 +27,7 @@
 
   <node pkg="cartographer_ros" type="cartographer_node" name="cartographer_node" 
         args="-configuration_directory $(find tf_sample)/config
+              -load_state_filename $(find tf_sample)/pbstream/map.pbstream
               -configuration_basename $(arg configuration_basename)"              
         output="screen">
         <remap from="scan" to="/rplidar_scan"/>

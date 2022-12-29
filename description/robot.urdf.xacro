@@ -2,8 +2,16 @@
 <robot name="lio" xmlns:xacro="http://tixiaoshan.github.io/">
   <xacro:property name="PI" value="3.1415926535897931" />
 
-  <link name="chassis_link"></link>
+ 
+  
+  <link name="camera_pose_frame"></link>
+  <joint name="camera_pose_joint" type="fixed">
+    <parent link="camera_pose_frame"/>
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
 
+  <link name="chassis_link"></link>
   <link name="base_link"></link>
   <joint name="base_link_joint" type="fixed">
     <parent link="base_link"/>
@@ -43,6 +51,13 @@
   <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera_link" />
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0.4 0 0.15" rpy="0 0 0" />
   </joint>
+<!-- 
+  <joint name="camera_pose_joint" type="fixed">
+    <parent link="camera_link"/>
+    <child link="camera_pose_frame" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint> -->
+
 </robot>
